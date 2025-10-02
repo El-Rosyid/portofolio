@@ -2,7 +2,14 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0"
+    />
+    <meta
+      name="description"
+      content="Portfolio M. Mu'izzul Rosyadi - Front-End Developer & WordPress Specialist"
+    />
     <title>M. Mu'izzul Rosyadi - WordPress Developer</title>
     <!-- Font Awesome untuk icon -->
     <link
@@ -16,10 +23,51 @@
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
         color: #333;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Touch-friendly improvements */
+      button,
+      .btn,
+      .social-icon,
+      .contact-item,
+      .skill-tag {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+
+      /* Better text rendering */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      p {
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      /* Improved images */
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
       }
 
       /* Header & Navigation */
@@ -41,23 +89,65 @@
         justify-content: space-between;
         align-items: center;
         padding: 0 2rem;
+        min-height: 60px;
+        position: relative;
       }
 
       .logo {
         font-size: 1.5rem;
         font-weight: bold;
+        white-space: nowrap;
+        z-index: 1001;
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 1001;
+        background: none;
+        border: none;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+        border-radius: 3px;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
       }
 
       nav ul {
         list-style: none;
         display: flex;
         gap: 2rem;
+        margin: 0;
+        padding: 0;
+        transition: all 0.3s ease;
       }
 
       nav a {
         color: white;
         text-decoration: none;
         transition: opacity 0.3s;
+        padding: 0.5rem 0;
+        display: block;
       }
 
       nav a:hover {
@@ -498,20 +588,131 @@
 
       /* Responsive */
       @media (max-width: 768px) {
+        /* Header & Navigation */
+        nav {
+          padding: 0 1rem;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        nav ul {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100vh;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 2rem;
+          font-size: 1.2rem;
+          transition: left 0.3s ease;
+          z-index: 1000;
+        }
+
+        nav ul.active {
+          left: 0;
+        }
+
+        nav ul li {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.3s ease;
+        }
+
+        nav ul.active li {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        nav ul.active li:nth-child(1) {
+          transition-delay: 0.1s;
+        }
+        nav ul.active li:nth-child(2) {
+          transition-delay: 0.2s;
+        }
+        nav ul.active li:nth-child(3) {
+          transition-delay: 0.3s;
+        }
+        nav ul.active li:nth-child(4) {
+          transition-delay: 0.4s;
+        }
+        nav ul.active li:nth-child(5) {
+          transition-delay: 0.5s;
+        }
+        nav ul.active li:nth-child(6) {
+          transition-delay: 0.6s;
+        }
+
+        nav a {
+          padding: 1rem 2rem;
+          font-size: 1.2rem;
+          text-align: center;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+          padding: 120px 1rem 80px;
+          text-align: center;
+        }
+
         .hero h1 {
-          font-size: 2rem;
+          font-size: 2.2rem;
+          line-height: 1.2;
         }
 
         .hero .subtitle {
-          font-size: 1.2rem;
+          font-size: 1.3rem;
+          margin-bottom: 1rem;
         }
 
+        .hero p {
+          font-size: 1rem;
+          margin-bottom: 2rem;
+          line-height: 1.5;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 250px;
+          text-align: center;
+          padding: 15px 20px;
+        }
+
+        /* Sections */
+        section {
+          padding: 60px 1rem;
+        }
+
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        /* About Section */
         .about-content {
           flex-direction: column;
+          gap: 2rem;
+          text-align: center;
         }
 
         .about-image {
           flex: 0 0 auto;
+          align-self: center;
         }
 
         .profile-img {
@@ -519,28 +720,63 @@
           height: 200px;
         }
 
-        nav ul {
-          gap: 1rem;
-          font-size: 0.9rem;
+        .about-text {
+          text-align: left;
         }
 
-        h2 {
-          font-size: 2rem;
+        /* Skills Grid */
+        .skills-grid {
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          gap: 0.8rem;
         }
 
-        .hero-buttons {
-          flex-direction: column;
-          align-items: center;
+        .skill-tag {
+          padding: 0.6rem 0.8rem;
+          font-size: 0.85rem;
         }
 
-        .btn {
-          width: 200px;
-          text-align: center;
+        /* Portfolio Grid */
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .portfolio-item {
+          max-width: 100%;
+        }
+
+        .portfolio-img {
+          height: 200px;
+        }
+
+        .portfolio-info {
+          padding: 1.2rem;
+        }
+
+        .portfolio-tech {
+          gap: 0.4rem;
+        }
+
+        .tech-badge {
+          font-size: 0.8rem;
+          padding: 0.2rem 0.6rem;
+        }
+
+        /* Education & Experience Cards */
+        .education-card,
+        .experience-card {
+          margin-bottom: 1.5rem;
+          padding: 1.5rem;
+        }
+
+        .experience-card {
+          padding-left: 2rem;
         }
 
         /* Social Icons Responsive */
         .social-icons {
           gap: 1rem;
+          margin: 1.5rem 0;
         }
 
         .social-icon {
@@ -549,15 +785,102 @@
           font-size: 1.2rem;
         }
 
+        /* Contact Info Enhanced */
         .contact-info-enhanced {
           flex-direction: column;
           align-items: center;
+          gap: 0.8rem;
         }
 
         .contact-item {
           width: 100%;
           max-width: 280px;
           justify-content: center;
+          padding: 0.7rem 1rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+          padding: 0 0.5rem;
+        }
+
+        .form-group {
+          margin-bottom: 1.2rem;
+        }
+
+        input,
+        textarea {
+          padding: 15px;
+          font-size: 16px; /* Prevent zoom on iOS */
+        }
+
+        .btn-submit {
+          padding: 18px;
+          font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+          padding: 1.5rem 1rem;
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Extra Small Devices */
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero .subtitle {
+          font-size: 1.1rem;
+        }
+
+        .hero p {
+          font-size: 0.95rem;
+        }
+
+        .profile-img {
+          width: 150px;
+          height: 150px;
+        }
+
+        .skills-grid {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+
+        .portfolio-img {
+          height: 180px;
+        }
+
+        .social-icon {
+          width: 45px;
+          height: 45px;
+          font-size: 1.1rem;
+        }
+
+        nav ul {
+          gap: 1rem;
+          font-size: 0.85rem;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+      }
+
+      /* Large Tablet */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .portfolio-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .skills-grid {
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        }
+
+        section {
+          padding: 70px 2rem;
         }
       }
     </style>
@@ -566,8 +889,16 @@
     <!-- Header -->
     <header>
       <nav>
-        <div class="logo">M. Mu'izzul Rosyadi</div>
-        <ul>
+        <div class="logo">Mu'izzul</div>
+
+        <!-- Hamburger Menu -->
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul id="navMenu">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#education">Education</a></li>
@@ -920,6 +1251,41 @@
     </footer>
 
     <script>
+      // Hamburger Menu Toggle
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+
+      hamburger.addEventListener("click", function () {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+
+        // Prevent body scroll when menu is open
+        if (navMenu.classList.contains("active")) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "auto";
+        }
+      });
+
+      // Close menu when clicking on nav links
+      const navLinks = document.querySelectorAll("#navMenu a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+          document.body.style.overflow = "auto";
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", function (e) {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+          document.body.style.overflow = "auto";
+        }
+      });
+
       // Smooth scrolling
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
