@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M. Mu'izzul Rosyadi - WordPress Developer</title>
+    <!-- Font Awesome untuk icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* Header & Navigation */
+      header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        transition: opacity 0.3s;
+      }
+
+      nav a:hover {
+        opacity: 0.8;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 150px 2rem 100px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        opacity: 0.8;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: white;
+        color: #667eea;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: transform 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-outline:hover {
+        background: white;
+        color: #667eea;
+      }
+
+      /* Section Styling */
+      section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 80px 2rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        color: #667eea;
+      }
+
+      /* About Section */
+      .about-content {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-image {
+        flex: 0 0 300px;
+      }
+
+      .profile-img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 8px solid #667eea;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text h3 {
+        color: #667eea;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .about-text p {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .contact-info {
+        margin: 1.5rem 0;
+      }
+
+      .contact-info p {
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .skills-section {
+        margin-top: 2rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .skill-tag {
+        background: #f0f4ff;
+        color: #667eea;
+        padding: 0.7rem 1rem;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .skill-tag:hover {
+        background: #667eea;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Education Section */
+      .education-card {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        border-left: 5px solid #667eea;
+      }
+
+      .education-card h3 {
+        color: #667eea;
+        margin-bottom: 0.5rem;
+      }
+
+      .education-meta {
+        color: #666;
+        margin-bottom: 1rem;
+        font-style: italic;
+      }
+
+      .education-card ul {
+        margin-left: 1.5rem;
+      }
+
+      .education-card li {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Experience Section */
+      .experience-card {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        position: relative;
+        padding-left: 3rem;
+      }
+
+      .experience-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        background: #667eea;
+        border-radius: 10px 0 0 10px;
+      }
+
+      .experience-card h3 {
+        color: #667eea;
+        margin-bottom: 0.5rem;
+      }
+
+      .experience-meta {
+        color: #666;
+        margin-bottom: 1rem;
+        font-style: italic;
+      }
+
+      .experience-card ul {
+        margin-left: 1.5rem;
+      }
+
+      .experience-card li {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Services Section */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .service-card {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        transition: transform 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .service-card h3 {
+        color: #667eea;
+        margin-bottom: 1rem;
+      }
+
+      /* Portfolio Section */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .portfolio-item {
+        background: #f8f9fa;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s;
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .portfolio-img {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3rem;
+      }
+
+      .portfolio-info {
+        padding: 1.5rem;
+      }
+
+      .portfolio-info h3 {
+        color: #667eea;
+        margin-bottom: 0.5rem;
+      }
+
+      .portfolio-tech {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tech-badge {
+        background: #e0e7ff;
+        color: #667eea;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.85rem;
+      }
+
+      /* Contact Section */
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Social Media Icons */
+      .social-icons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .social-icon:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .social-icon.whatsapp {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+      }
+
+      .social-icon.linkedin {
+        background: linear-gradient(135deg, #0077b5, #005885);
+        color: white;
+      }
+
+      .social-icon.email {
+        background: linear-gradient(135deg, #ea4335, #d33b2c);
+        color: white;
+      }
+
+      .contact-info-enhanced {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 2rem 0;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.2rem;
+        background: #f8f9fa;
+        border-radius: 25px;
+        text-decoration: none;
+        color: #667eea;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .contact-item:hover {
+        background: #667eea;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+      }
+
+      .contact-item i {
+        font-size: 1.1rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        font-family: inherit;
+        transition: border-color 0.3s;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      .btn-submit {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      .btn-submit:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero .subtitle {
+          font-size: 1.2rem;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+
+        .about-image {
+          flex: 0 0 auto;
+        }
+
+        .profile-img {
+          width: 200px;
+          height: 200px;
+        }
+
+        nav ul {
+          gap: 1rem;
+          font-size: 0.9rem;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 200px;
+          text-align: center;
+        }
+
+        /* Social Icons Responsive */
+        .social-icons {
+          gap: 1rem;
+        }
+
+        .social-icon {
+          width: 50px;
+          height: 50px;
+          font-size: 1.2rem;
+        }
+
+        .contact-info-enhanced {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .contact-item {
+          width: 100%;
+          max-width: 280px;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <div class="logo">Mu'izzul R.</div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <h1>M. Mu'izzul Rosyadi</h1>
+      <p class="subtitle">Front-End Developer & WordPress Specialist</p>
+      <p>
+        Mahasiswa Teknik Informatika | Pengalaman dalam JavaScript, TypeScript,
+        WordPress & Data Visualization
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Hubungi Saya</a>
+        <a
+          href="https://drive.google.com/file/d/1dXy0vGNTbUqAZhnYMWXhm77uH05HCW1x/view?usp=drive_link"
+          class="btn btn-outline"
+          >Download CV</a
+        >
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>Tentang Saya</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <img
+            src="images/foto.jpg"
+            alt="M. Mu'izzul Rosyadi"
+            class="profile-img"
+          />
+        </div>
+        <div class="about-text">
+          <h3>Front-End Developer & WordPress Specialist</h3>
+          <p>
+            Mahasiswa Teknik Informatika dengan pengalaman sebagai Front-End
+            Developer dan staf administrasi. Memiliki keahlian dalam
+            pengembangan website (JavaScript, TypeScript, WordPress) serta
+            pengelolaan dan visualisasi data menggunakan Microsoft Excel dan
+            Power BI.
+          </p>
+          <p>
+            Terbiasa bekerja secara tim, mengelola dokumen, dan mendukung tugas
+            administrasi dengan efisien. Berfokus pada pembuatan website yang
+            responsif dan user-friendly.
+          </p>
+
+          <div class="contact-info-enhanced">
+            <a href="mailto:zammuizul@gmail.com" class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>zammuizul@gmail.com</span>
+            </a>
+            <a
+              href="https://wa.me/6281528216477"
+              target="_blank"
+              class="contact-item"
+            >
+              <i class="fab fa-whatsapp"></i>
+              <span>+62 815-2821-6477</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/mmuizzulrosyadi"
+              target="_blank"
+              class="contact-item"
+            >
+              <i class="fab fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+
+          <div class="skills-section">
+            <h3>Keahlian Teknis</h3>
+            <div class="skills-grid">
+              <div class="skill-tag">HTML/CSS</div>
+              <div class="skill-tag">JavaScript</div>
+              <div class="skill-tag">TypeScript</div>
+              <div class="skill-tag">WordPress</div>
+              <div class="skill-tag">Next.js</div>
+              <div class="skill-tag">SQL</div>
+              <div class="skill-tag">Git</div>
+              <div class="skill-tag">Power BI</div>
+              <div class="skill-tag">MS Excel</div>
+              <div class="skill-tag">MS Office</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <h2>Pendidikan</h2>
+      <div class="education-card">
+        <h3>S1 Teknik Informatika</h3>
+        <p class="education-meta">
+          Universitas Muhammadiyah Purwokerto | 2021 - Sekarang | IPK: 3.6/4.00
+        </p>
+        <ul>
+          <li>
+            Menguasai pemrograman HTML, CSS, dan JavaScript untuk pengembangan
+            antarmuka web responsif
+          </li>
+          <li>
+            Belajar tentang integrasi API, SQL dan pengelolaan data dari sisi
+            klien untuk fungsi-fungsi web yang lebih kompleks
+          </li>
+          <li>
+            Memahami konsep pemrograman berbasis komponen untuk meningkatkan
+            efisiensi dan skalabilitas dalam pengembangan front-end
+          </li>
+        </ul>
+      </div>
+
+      <div class="education-card">
+        <h3>Bootcamp Excel Dashboard Interactive</h3>
+        <p class="education-meta">Mei 2025</p>
+        <ul>
+          <li>
+            Pengolahan dan analisis data lalu mengvisualisasikannya dalam bentuk
+            dashboard interaktif yang mudah dipahami
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2>Pengalaman</h2>
+
+      <h3 style="color: #667eea; margin-bottom: 1.5rem">Pengalaman Kerja</h3>
+      <div class="experience-card">
+        <h3>Magang MBKM Internal</h3>
+        <p class="experience-meta">
+          PT. Nemolab Nusa Infomedia | Sep 2023 – Des 2023
+        </p>
+        <ul>
+          <li>
+            Merancang dan mengimplementasikan rancangan UI/UX website dari Figma
+            ke dalam sebuah website, menggunakan teknologi Next.js lalu
+            melakukan commit ke dalam direktori Git
+          </li>
+          <li>
+            Merancang dan mengimplementasikan rancangan UI/UX website dari
+            Figma, menggunakan teknologi WordPress dan melakukan hosting dengan
+            cPanel
+          </li>
+        </ul>
+      </div>
+
+      <h3 style="color: #667eea; margin: 3rem 0 1.5rem">
+        Pengalaman Organisasi
+      </h3>
+      <div class="experience-card">
+        <h3>Anggota Divisi KOMINFO</h3>
+        <p class="experience-meta">
+          HMTI Universitas Muhammadiyah Purwokerto | Des 2021 – Des 2022
+        </p>
+        <ul>
+          <li>
+            Panitia pelaksanaan makrab mahasiswa baru untuk prodi teknik
+            informatika
+          </li>
+          <li>Panitia pelaksanaan lomba IT Fest di tingkat prodi</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <h2>Portfolio Saya</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-img">
+            <img
+              src="images/excel.jpg"
+              alt="Dashboard Excel"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="portfolio-info">
+            <h3>Dashboard Interaktif - Kaizen Overbooking</h3>
+            <p>
+              Dashboard analisis data hotel untuk meningkatkan revenue melalui
+              strategi overbooking. Menampilkan visualisasi tingkat pembatalan,
+              revenue loss, dan rekomendasi bisnis menggunakan chart interaktif.
+            </p>
+            <div class="portfolio-tech">
+              <span class="tech-badge">Microsoft Excel</span>
+              <span class="tech-badge">Data Analysis</span>
+              <span class="tech-badge">Data Visualization</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="portfolio-img">
+            <img
+              src="images/Screenshot 2025-10-02 085450.png"
+              alt="Sistem Informasi Desa"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="portfolio-info">
+            <h3>Sistem Informasi Desa - Asadesa</h3>
+            <p>
+              Website sistem informasi kependudukan desa dengan fitur manajemen
+              data penduduk, keluarga, surat, dan statistik demografi. Dashboard
+              admin dengan visualisasi data real-time menggunakan chart dan
+              grafik interaktif.
+            </p>
+            <div class="portfolio-tech">
+              <span class="tech-badge">Next.js</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">API Integration</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="portfolio-img">
+            <img
+              src="images/Screenshot 2025-10-02 085634.png"
+              alt="WordPress Masterplan"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="portfolio-info">
+            <h3>Website Masterplan Desa - PT. Nara</h3>
+            <p>
+              Website company profile untuk perencanaan strategis pembangunan
+              desa. Menampilkan informasi layanan, portfolio proyek, dan visi
+              misi perusahaan dengan desain modern dan responsif.
+            </p>
+            <div class="portfolio-tech">
+              <span class="tech-badge">WordPress</span>
+              <span class="tech-badge">Elementor</span>
+              <span class="tech-badge">PHP</span>
+              <span class="tech-badge">Custom Theme</span>
+              <span class="tech-badge">cPanel</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="portfolio-img">
+            <img
+              src="images/lembubenggolo.png"
+              alt="WordPress Masterplan"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="portfolio-info">
+            <h3>Website wisata Lembu Beninggolo</h3>
+            <p>
+              Website promosi destinasi wisata Lembu Beninggolo yang menampilkan
+              informasi lengkap tentang objek wisata, fasilitas, paket tour, dan
+              galeri foto. Dilengkapi dengan peta lokasi untuk memudahkan
+              wisatawan lokasi untuk memudahkan wisatawan merencanakan
+              kunjungan.
+            </p>
+            <div class="portfolio-tech">
+              <span class="tech-badge">WordPress</span>
+              <span class="tech-badge">Elementor</span>
+              <span class="tech-badge">Custom Theme</span>
+              <span class="tech-badge">cPanel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Hubungi Saya</h2>
+
+      <div style="max-width: 600px; margin: 0 auto 3rem; text-align: center">
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #666">
+          Tertarik untuk berkolaborasi atau memiliki project? Jangan ragu untuk
+          menghubungi saya!
+        </p>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+          <a
+            href="https://wa.me/6281528216477"
+            target="_blank"
+            class="social-icon whatsapp"
+            title="WhatsApp"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a
+            href="https://linkedin.com/in/mmuizzulrosyadi"
+            target="_blank"
+            class="social-icon linkedin"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="mailto:zammuizul@gmail.com"
+            class="social-icon email"
+            title="Email"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Nama</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Pesan</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Kirim Pesan</button>
+      </form>
+
+      <!-- Alternative: Direct Email Button -->
+      <div style="text-align: center; margin-top: 2rem">
+        <p style="color: #666; margin-bottom: 1rem">
+          Atau kirim email langsung:
+        </p>
+        <a
+          href="mailto:zammuizul@gmail.com?subject=Pesan dari Portfolio&body=Halo Mu'izzul,%0D%0A%0D%0ASaya tertarik untuk berdiskusi tentang..."
+          class="btn btn-outline"
+          style="display: inline-flex; align-items: center; gap: 0.5rem"
+        >
+          <i class="fas fa-envelope"></i>
+          Buka Email Client
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 M. Mu'izzul Rosyadi. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Form submission
+      document
+        .querySelector("#contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Ambil data form
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
+
+          // Validasi form
+          if (!name || !email || !message) {
+            alert("Mohon lengkapi semua field!");
+            return;
+          }
+
+          // Buat subject dan body email yang terformat
+          const subject = `Portfolio Contact - Pesan dari ${name}`;
+          const emailBody = `Halo Mu'izzul,
+
+Saya ${name} ingin menghubungi Anda melalui portfolio website.
+
+Detail Kontak:
+📧 Email: ${email}
+👤 Nama: ${name}
+
+💬 Pesan:
+${message}
+
+---
+Dikirim melalui form kontak di portfolio website
+Terima kasih!`;
+
+          // Encode untuk URL
+          const encodedSubject = encodeURIComponent(subject);
+          const encodedBody = encodeURIComponent(emailBody);
+
+          // Buat mailto link
+          const mailtoLink = `mailto:zammuizul@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+
+          // Buka email client
+          window.location.href = mailtoLink;
+
+          // Show success message dan reset form
+          setTimeout(() => {
+            alert(
+              "Email client Anda akan terbuka dengan pesan yang sudah terformat. Silakan kirim email tersebut!"
+            );
+            this.reset();
+          }, 500);
+        });
+
+      // Download CV function
+      function downloadCV(e) {
+        e.preventDefault();
+        alert(
+          "Untuk download CV, silakan hubungi saya melalui email: zammuizul@gmail.com\n\nAnda juga bisa mengupload file CV Anda dan menggantinya dengan link download yang sebenarnya."
+        );
+        // Ganti dengan link CV yang sebenarnya:
+        // window.open('link-ke-cv-anda.pdf', '_blank');
+      }
+    </script>
+  </body>
+</html>
